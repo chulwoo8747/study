@@ -1,0 +1,64 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: Apple SD Gothic Neo, arial, sans-serif;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+input {
+  width: 403px;
+  height: 44px;
+  border: none;
+  outline: none;
+  background: transparent;
+}
+
+#input_text {
+  position: absolute;
+  opacity: 1;
+}
+
+input:hover #input_text {
+  opacity: 1;
+}
+
+form {
+  display: flex;
+}
+
+a:link {
+  color: black;
+  text-decoration: none;
+}
+a:visited {
+  color: black;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+a#footer:link {
+  color: #70757a;
+  text-decoration: none;
+}
+
+a#footer:hover {
+  color: #70757a;
+  text-decoration: underline;
+}
+
+a#footer:visited {
+  color: #70757a;
+  text-decoration: none;
+}
+
+a#searchKeyword:link {
+  color: #70757a;
+  text-decoration: none;
+}
+
+a#searchkeyword:hover {
+  text-decoration: none;
+}
