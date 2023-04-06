@@ -23,3 +23,12 @@
 #icontuch:hover + .text:hover {
   display: block;
 }
+
+input {
+  width: 480px;
+  height: 32px;
+  background: transparent;
+  outline: none;
+  border: none;
+  display: flex;
+}
