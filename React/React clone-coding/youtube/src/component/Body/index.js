@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import Nav from "../Nav";
+import Nav from "../nav";
 import Bar from "../bar";
 import Content from "../content";
 
