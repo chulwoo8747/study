@@ -44,8 +44,8 @@ Board를 선택해주고 프로젝트 이름도 쓰고 Create를 누르고 생�
 여기서 이슈
 
 <img src="https://postfiles.pstatic.net/MjAyMzA0MDZfMTIx/MDAxNjgwNzQxMzYzMzMy.4lJhnMgwAWXk6VuB3LfX_Ul_U1woEtmFjVH4l_hWWmEg.dK5KMSce4v-Bv0utcSNZtV3qbsYIrUKYd6NQvzhIsY4g.PNG.chul8747/image.png?type=w773">
-
 Add item을 누르고 issue(이슈)를 등록할 수 있다.
+<br>
 <br>
 <br>
 
