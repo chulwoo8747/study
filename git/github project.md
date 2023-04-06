@@ -20,7 +20,7 @@
 
 Board를 선택해주고 프로젝트 이름도 쓰고 Create를 누르고 생성해준다.
 
-<img title="" src="file:///C:/Users/DSM2022/Desktop/Untitled.png" alt="">
+<img src="https://blogfiles.pstatic.net/MjAyMzA0MDZfODEg/MDAxNjgwNzQxMjk4Mjc1.BNePxxrAcyZpUQIOmHbJYF0_1L7BUms8VIhYuMJ4jEUg.M1MoGRRJJMFTmcALWzpndEpDSRSG-QMnmSJ2VWqGkJkg.PNG.chul8747/image.png">
 
 
 
