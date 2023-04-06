@@ -60,7 +60,7 @@ const SearchBox = styled.div`
   padding: 0 8px 0 16px;
 `;
 
-const Input = styled.input`
+const Input = styled.form`
   background: transparent;
   border: none;
   outline: none;
@@ -129,7 +129,13 @@ const Header = () => {
       </HeaderLogo>
       <HeaderSearch>
         <SearchBox>
-          <Input placeholder="검색" />
+          <Input
+            placeholder="검색"
+            action="https://www.youtube.com/search"
+            method="GET"
+          >
+            <input name="q" type="text" id="input_text" />
+          </Input>
           <Keybord>
             <img src={Tia} />
           </Keybord>
