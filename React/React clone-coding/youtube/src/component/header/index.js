@@ -1,10 +1,9 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled, { css } from "styled-components";
-import { AiOutlineMenu } from "react-icons/ai";
 import Tia from "../../assets/icons/Tia.png";
 import Picture from "../../assets/icons/profile.jpg";
 import { ImYoutube2 } from "react-icons/im";
-import { useState } from "react";
+import axios from "axios";
 
 const HeaderArea = styled.div`
   width: 100%;

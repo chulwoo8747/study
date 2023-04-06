@@ -1,4 +1,5 @@
-import React from "react";
+import { useState, useEffect } from "react";
+import axios from "axios";
 import styled from "styled-components";
 
 const ContentArea = styled.div`
@@ -17,7 +18,7 @@ const ContentBox = styled.div`
   margin-left: 12px;
 `;
 
-const ContentVideo = styled.div`
+const ContentVideo = styled.img`
   width: 291px;
   height: 164px;
   border: 1px solid;
@@ -64,190 +65,51 @@ const Div = styled.div`
 `;
 
 const Content = () => {
+  const [videos, setVideos] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      axios
+        .get("https://www.googleapis.com/youtube/v3/search", {
+          params: {
+            part: "snippet",
+            maxResults: 100,
+            q: "Korea",
+            type: "video",
+            key: process.env.REACT_APP_API_KEY,
+          },
+        })
+        .then((res) => {
+          setVideos(res.data.items);
+        });
+    };
+    fetchData();
+  }, []);
+
   return (
     <ContentArea>
-      <ContentBox>
-        <ContentVideo />
-        <Div>
-          <ContentProfile />
-          <ContentTitle>제목입니다.</ContentTitle>
-        </Div>
-
-        <ContentInformation>
-          <ContentCreator>ContentCreator</ContentCreator>
-          <Div>
-            조회수 1회
-            <ContentPosted>1일전</ContentPosted>
-          </Div>
-        </ContentInformation>
-      </ContentBox>
-      <ContentBox>
-        <ContentVideo />
-        <Div>
-          <ContentProfile />
-          <ContentTitle>제목입니다.</ContentTitle>
-        </Div>
-
-        <ContentInformation>
-          <ContentCreator>ContentCreator</ContentCreator>
-          <Div>
-            조회수 1회
-            <ContentPosted>1일전</ContentPosted>
-          </Div>
-        </ContentInformation>
-      </ContentBox>
-      <ContentBox>
-        <ContentVideo />
-        <Div>
-          <ContentProfile />
-          <ContentTitle>제목입니다.</ContentTitle>
-        </Div>
-
-        <ContentInformation>
-          <ContentCreator>ContentCreator</ContentCreator>
-          <Div>
-            조회수 1회
-            <ContentPosted>1일전</ContentPosted>
-          </Div>
-        </ContentInformation>
-      </ContentBox>
-      <ContentBox>
-        <ContentVideo />
-        <Div>
-          <ContentProfile />
-          <ContentTitle>제목입니다.</ContentTitle>
-        </Div>
-
-        <ContentInformation>
-          <ContentCreator>ContentCreator</ContentCreator>
-          <Div>
-            조회수 1회
-            <ContentPosted>1일전</ContentPosted>
-          </Div>
-        </ContentInformation>
-      </ContentBox>
-
-      <ContentBox>
-        <ContentVideo />
-        <Div>
-          <ContentProfile />
-          <ContentTitle>제목입니다.</ContentTitle>
-        </Div>
-
-        <ContentInformation>
-          <ContentCreator>ContentCreator</ContentCreator>
-          <Div>
-            조회수 1회
-            <ContentPosted>1일전</ContentPosted>
-          </Div>
-        </ContentInformation>
-      </ContentBox>
-      <ContentBox>
-        <ContentVideo />
-        <Div>
-          <ContentProfile />
-          <ContentTitle>제목입니다.</ContentTitle>
-        </Div>
-
-        <ContentInformation>
-          <ContentCreator>ContentCreator</ContentCreator>
-          <Div>
-            조회수 1회
-            <ContentPosted>1일전</ContentPosted>
-          </Div>
-        </ContentInformation>
-      </ContentBox>
-      <ContentBox>
-        <ContentVideo />
-        <Div>
-          <ContentProfile />
-          <ContentTitle>제목입니다.</ContentTitle>
-        </Div>
-
-        <ContentInformation>
-          <ContentCreator>ContentCreator</ContentCreator>
-          <Div>
-            조회수 1회
-            <ContentPosted>1일전</ContentPosted>
-          </Div>
-        </ContentInformation>
-      </ContentBox>
-      <ContentBox>
-        <ContentVideo />
-        <Div>
-          <ContentProfile />
-          <ContentTitle>제목입니다.</ContentTitle>
-        </Div>
-
-        <ContentInformation>
-          <ContentCreator>ContentCreator</ContentCreator>
-          <Div>
-            조회수 1회
-            <ContentPosted>1일전</ContentPosted>
-          </Div>
-        </ContentInformation>
-      </ContentBox>
-
-      <ContentBox>
-        <ContentVideo />
-        <Div>
-          <ContentProfile />
-          <ContentTitle>제목입니다.</ContentTitle>
-        </Div>
-
-        <ContentInformation>
-          <ContentCreator>ContentCreator</ContentCreator>
-          <Div>
-            조회수 1회
-            <ContentPosted>1일전</ContentPosted>
-          </Div>
-        </ContentInformation>
-      </ContentBox>
-      <ContentBox>
-        <ContentVideo />
-        <Div>
-          <ContentProfile />
-          <ContentTitle>제목입니다.</ContentTitle>
-        </Div>
-
-        <ContentInformation>
-          <ContentCreator>ContentCreator</ContentCreator>
-          <Div>
-            조회수 1회
-            <ContentPosted>1일전</ContentPosted>
-          </Div>
-        </ContentInformation>
-      </ContentBox>
-      <ContentBox>
-        <ContentVideo />
-        <Div>
-          <ContentProfile />
-          <ContentTitle>제목입니다.</ContentTitle>
-        </Div>
-
-        <ContentInformation>
-          <ContentCreator>ContentCreator</ContentCreator>
-          <Div>
-            조회수 1회
-            <ContentPosted>1일전</ContentPosted>
-          </Div>
-        </ContentInformation>
-      </ContentBox>
-      <ContentBox>
-        <ContentVideo />
-        <Div>
-          <ContentProfile />
-          <ContentTitle>제목입니다.</ContentTitle>
-        </Div>
-
-        <ContentInformation>
-          <ContentCreator>ContentCreator</ContentCreator>
-          <Div>
-            조회수 1회
-            <ContentPosted>1일전</ContentPosted>
-          </Div>
-        </ContentInformation>
-      </ContentBox>
+      {videos.map((video) => {
+        console.log(video);
+        return (
+          <ContentBox key={video.id.videold}>
+            <ContentVideo
+              src={video.snippet.thumbnails.medium.url}
+              alt={video.snippet.title}
+            />
+            <Div>
+              <ContentProfile />
+              <ContentTitle>{video.snippet.title}</ContentTitle>
+            </Div>
+            <ContentInformation>
+              <ContentCreator>{video.snippet.channelTitle}</ContentCreator>
+              <Div>
+                조회수 1회
+                <ContentPosted>1일전</ContentPosted>
+              </Div>
+            </ContentInformation>
+          </ContentBox>
+        );
+      })}
     </ContentArea>
   );
 };
